@@ -44,16 +44,30 @@ def game():
                 print("\nGame Over.\n")                
                 print(" $$ " +turn + " has won the game!. $$")                
                 break
-            elif theBoard['4'] == theBoard['5'] == theBoard['6'] != ' ': # Won across the middle of the board
-                printBoard(theBoard)
-                print("\nGame Over.\n")                
-                print(" $$ " +turn + " has won the game!. $$")
-                break
             elif theBoard['1'] == theBoard['2'] == theBoard['3'] != ' ': # Won across the bottom of the board
                 printBoard(theBoard)
                 print("\nGame Over.\n")                
                 print(" $$ " +turn + " has won the game!. $$")
                 break
+            elif theBoard['4'] == theBoard['5'] == theBoard['6'] != ' ': # Won across the middle of the board
+                printBoard(theBoard)
+                print("\nGame Over.\n")                
+                print(" $$ " +turn + " has won the game!. $$")
+                break
+            elif theBoard['7'] == theBoard['5'] == theBoard['3'] != ' ': # Won Diagonally 
+                printBoard(theBoard)
+                print("\nGame Over.\n")                
+                print(" $$ " +turn + " has won the game!. $$")
+                break
+            elif theBoard['1'] == theBoard['5'] == theBoard['9'] != ' ': # Won Diagonally
+                printBoard(theBoard)
+                print("\nGame Over.\n")                
+                print(" $$ " +turn + " has won the game!. $$")
+                break 
+            elif theBoard['3'] == theBoard['6'] == theBoard['9'] != ' ': # Won down the right side of the board
+                printBoard(theBoard)
+                print("\nGame Over.\n")                
+                print(" $$ " +turn + " has won the game!. $$")
             elif theBoard['1'] == theBoard['4'] == theBoard['7'] != ' ': # Won down the left side of the board
                 printBoard(theBoard)
                 print("\nGame Over.\n")                
@@ -64,21 +78,7 @@ def game():
                 print("\nGame Over.\n")                
                 print(" $$ " +turn + " has won the game!. $$")
                 break
-            elif theBoard['3'] == theBoard['6'] == theBoard['9'] != ' ': # Won down the right side of the board
-                printBoard(theBoard)
-                print("\nGame Over.\n")                
-                print(" $$ " +turn + " has won the game!. $$")
-                break 
-            elif theBoard['7'] == theBoard['5'] == theBoard['3'] != ' ': # Won diagonally 
-                printBoard(theBoard)
-                print("\nGame Over.\n")                
-                print(" $$ " +turn + " has won the game!. $$")
-                break
-            elif theBoard['1'] == theBoard['5'] == theBoard['9'] != ' ': # Won Diagonally
-                printBoard(theBoard)
-                print("\nGame Over.\n")                
-                print(" $$ " +turn + " has won the game!. $$")
-                break 
+                
 
 # Game over function
 
