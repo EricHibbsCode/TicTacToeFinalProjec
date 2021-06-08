@@ -1,0 +1,104 @@
+# Eric Hibbs Python Tic-Tac-Toe
+# Using dictionary for 2D array board
+
+theBoard = {'7': ' ' , '8': ' ' , '9': ' ' ,
+            '4': ' ' , '5': ' ' , '6': ' ' ,
+            '1': ' ' , '2': ' ' , '3': ' ' }
+
+board_keys = []
+
+for key in theBoard:
+    board_keys.append(key)
+
+# printBoard function created to label and assign each space a value
+
+def printBoard(board):
+    print(board['7'] + '|' + board['8'] + '|' + board['9'])
+    print('-+-+-')
+    print(board['4'] + '|' + board['5'] + '|' + board['6'])
+    print('-+-+-')
+    print(board['1'] + '|' + board['2'] + '|' + board['3'])
+
+# Main function for symbols and game functionality
+def game():
+
+    turn = 'X'
+    count = 0
+
+    for i in range(10):
+        printBoard(theBoard)
+        print("It is now your turn, " + turn + ". Where would you like to move?")
+
+        move = input()        
+
+        if theBoard[move] == ' ':
+            theBoard[move] = turn
+            count += 1
+        else:
+            print("That space is already taken!.\Choose a new space(#1-9)?")
+            continue
+
+        if count >= 5:
+            if theBoard['7'] == theBoard['8'] == theBoard['9'] != ' ': # Won across the top of the board
+                printBoard(theBoard)
+                print("\nGame Over.\n")                
+                print(" $$ " +turn + " has won the game!. $$")                
+                break
+            elif theBoard['4'] == theBoard['5'] == theBoard['6'] != ' ': # Won across the middle of the board
+                printBoard(theBoard)
+                print("\nGame Over.\n")                
+                print(" $$ " +turn + " has won the game!. $$")
+                break
+            elif theBoard['1'] == theBoard['2'] == theBoard['3'] != ' ': # Won across the bottom of the board
+                printBoard(theBoard)
+                print("\nGame Over.\n")                
+                print(" $$ " +turn + " has won the game!. $$")
+                break
+            elif theBoard['1'] == theBoard['4'] == theBoard['7'] != ' ': # Won down the left side of the board
+                printBoard(theBoard)
+                print("\nGame Over.\n")                
+                print(" $$ " +turn + " has won the game!. $$")
+                break
+            elif theBoard['2'] == theBoard['5'] == theBoard['8'] != ' ': # Won down the middle of the board
+                printBoard(theBoard)
+                print("\nGame Over.\n")                
+                print(" $$ " +turn + " has won the game!. $$")
+                break
+            elif theBoard['3'] == theBoard['6'] == theBoard['9'] != ' ': # Won down the right side of the board
+                printBoard(theBoard)
+                print("\nGame Over.\n")                
+                print(" $$ " +turn + " has won the game!. $$")
+                break 
+            elif theBoard['7'] == theBoard['5'] == theBoard['3'] != ' ': # Won diagonally 
+                printBoard(theBoard)
+                print("\nGame Over.\n")                
+                print(" $$ " +turn + " has won the game!. $$")
+                break
+            elif theBoard['1'] == theBoard['5'] == theBoard['9'] != ' ': # Won Diagonally
+                printBoard(theBoard)
+                print("\nGame Over.\n")                
+                print(" $$ " +turn + " has won the game!. $$")
+                break 
+
+# Game over function
+
+        if count == 9:
+            print("\nGame Over!!!.\n")                
+            print("The game has ended in a tie!")
+
+        if turn =='X':
+            turn = 'O'
+        else:
+            turn = 'X'        
+    
+   # Restart function
+   
+    restart = input("Would you like to play again?(Yes/No)")
+    if restart == "y" or restart == "Y":  
+        for key in board_keys:
+            theBoard[key] = " "
+
+        game()
+# Ending python main agreements)
+if __name__ == "__main__":
+    game()
